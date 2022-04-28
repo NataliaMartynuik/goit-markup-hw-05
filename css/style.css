@@ -117,6 +117,19 @@ img {
 .link_active{
     color: var(--blue-text-color);
 }
+
+.link_studio {
+    position: relative;
+}
+.link_studio::after {
+    content: "";
+    width: 48px;
+    height: 4px;
+    background-color: var(--blue-text-color);
+    display: block;
+    position: absolute;
+    bottom: 0;
+}
 .contact_link {
     color: var(--text-color);
 
@@ -147,6 +160,18 @@ img {
     margin-right: 50px; 
 }
 
+.link_portfolio {
+    position: relative;
+}
+.link_portfolio::after {
+    content: "";
+    width: 78px;
+    height: 4px;
+    background-color: var(--blue-text-color);
+    display: block;
+    position: absolute;
+    bottom: 0;
+}
 
 /* ---------------------hero------------------------- */
 
@@ -264,7 +289,9 @@ img {
 .works_item:not(:last-child) {
     margin-right: 30px;
 }
-
+.works_cards {
+    position: relative;
+}
 .work_text {
     font-weight: 700;
     font-size: 14px;
@@ -274,13 +301,14 @@ img {
     text-transform: uppercase;
     background-color: rgba(47, 48, 58, 0.8); ;
     color: var(--secondary-color);
-    position: absolute;
     width: 370px;
     min-height: 70px;
     display: flex;
     align-items: center;
     justify-content: center;
-    transform: translateY(-70px);
+    position: absolute;
+    bottom: 0;
+   
 }
 
 
@@ -531,12 +559,13 @@ img {
     margin-left: 30px;
     margin-top: 30px;
     flex-basis: calc((100% - 90px) / 3);
-    transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1); 
 }
 
 .galerie_item:hover,
 .galerie_item:focus {
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    
 }
 .galerie_title {
     margin-bottom: 4px;
@@ -559,5 +588,91 @@ img {
     border-bottom: 1px solid #EEEEEE;
     border-left: 1px solid #EEEEEE;
     border-right: 1px solid #EEEEEE;
+}
+
+.galerie_wrap {
+    position: relative;
+    overflow: hidden;  
+}
+
+.galerie_cover_text {
+    position: absolute;
+    top: 0;
+    background-color: rgba(33, 150, 243, 0.9);
+    color: var(--secondary-color);
+    font-size: 18px;
+    line-height: 1.56;
+    letter-spacing: 0.03em; 
+    padding: 63px 24px;
+    height: 100% - 1px;
+    transform: translateY(100%);
+    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1); 
+    overflow: auto;
+}
+
+.galerie_item:hover .galerie_cover_text,
+.galerie_item:focus .galerie_cover_text {
+    transform: translateY(0%);
+}
+
+/* -------------backdrop------------------------------ */
+
+
+.backdrop {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.2);
+    transition: opacity 500ms, visibility 500ms;
+   
+}
+
+.backdrop.is-hidden .modal {
+    transform: scale(1) rotate(90deg);
+    transition: transform 1000ms cubic-bezier(0.39, 0.575, 0.565, 1);
+}  
+
+.modal {
+    width: 528px;
+    min-height: 581px;
+    background-color: var(--secondary-color);
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12),
+    0px 1px 1px rgba(0, 0, 0, 0.14),
+    0px 2px 1px rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transition: transform 1000ms cubic-bezier(0.39, 0.575, 0.565, 1);
+    transform: translate(-50%, -50%) rotate(0);
+    
+}
+
+ .icon_close {
+    width: 18px;
+    height: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    margin: auto;
+} 
+.modal_close_btn {
+    border-radius: 50%; 
+    background-color: transparent;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    width: 30px;
+    height: 30px;
+    align-items: center;
+    text-align: center;
+    padding: 0;
+}
+.is-hidden {
+    opacity: 0;
+    pointer-events: none;
+    visibility: hidden;
 }
 

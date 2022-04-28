@@ -21,7 +21,7 @@
         <nav class="navigation">
             <ul class="nav_list list">
                 <li class="nav_item">
-                    <a class="link_active nav_link link" href="">Студия</a>
+                    <a class="link_active nav_link link_studio link" href=""> <span class="an"> Студия </span></a>
                 </li>
                 <li class="nav_item" >
                     <a class="nav_link link" href="./portfolio.html">Портфолио</a>
@@ -54,7 +54,7 @@
         <section class="hero section">
             <div class="container">
             <h1 class="hero_title">Эффективные решения для вашего бизнеса</h1>
-            <button class="hero_btn" type="button">Заказать услугу</button>
+            <button class="hero_btn" type="button" data-modal-open>Заказать услугу</button>
             </div>
         </section>
         <section class="features section">
@@ -104,22 +104,26 @@
 
             <ul class="works_list list">
                 <li class="works_item">
+                    <div class="works_cards">
                     <img src="./img/box1.jpg" alt="Фото1_создание сайтов" width="370" height="294">
                     <div class="work_text">
                         <p >Десктопные приложения</p>
                     </div>
+                    </div>
                 </li>
                 <li class="works_item">
+                    <div class="works_cards">
                     <img src="./img/box2.jpg" alt="Фото2_адаптивная верстка" width="370" height="294">
                     <div class="work_text">
                         <p>Мобильные приложения</p>
-                    </div>
+                    </div></div>
                 </li>
                 <li class="works_item">
+                    <div class="works_cards">
                     <img src="./img/box3.jpg" alt="Фото3_адаптивная графика" width="370" height="294">
                     <div class="work_text">
                         <p>Дизайнерские решения</p>
-                    </div>
+                    </div></div>
                 </li>
             </ul> </div>
         </section>
@@ -368,6 +372,16 @@
         </div>
     </div>
     </footer>
+    <div class="backdrop is-hidden" data-modal>
+        <div class="modal">
+            <button type="button" class="modal_close_btn" data-modal-close>
+                <svg class="icon_close">
+                    <use href="./img/icons.svg#icon-close"></use>
+                </svg>
+            </button>
+        </div>
+    </div>
+<script src="./js/modal.js"></script>
 </body>
 
 </html>
